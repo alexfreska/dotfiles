@@ -1,10 +1,38 @@
+### vim ####
 alias vim="nvim"
+
+
+
+### git ####
 
 # git completion
 source ~/git-completion.bash
 
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+
+### nvm ###
+
+# https://superuser.com/questions/544989/does-tmux-sort-the-path-variable/583502#583502
+if [ -f /etc/profile ]; then
+	PATH=""
+	source /etc/profile
+fi
+
+export NVM_DIR="$HOME/.nvm"
+
+# This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+# This loads nvm bash_completion
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+
+
+### rbenv ###
+export RBENV_ROOT=/usr/local/var/rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+
+
+### local profile ####
+source .local_profile
