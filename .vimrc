@@ -2,7 +2,7 @@
 " Show line numbers
 set number
 
-:set mouse=a
+set mouse=a
 
 " Language ---------------------------------------------------------------------------
 autocmd FileType javascript setlocal ts=2 sts=2 sw=2
@@ -32,6 +32,8 @@ endif
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'unblevable/quick-scope'
+Plug 'sheerun/vim-polyglot'
+Plug 'chriskempson/base16-vim'
 
 call plug#end()
 
