@@ -1,3 +1,8 @@
+# Use Vi bindings.
+set -o vi
+
+
+
 ### vim ####
 alias vim="nvim"
 
