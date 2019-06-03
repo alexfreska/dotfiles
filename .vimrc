@@ -17,7 +17,7 @@ let g:netrw_browse_split = 4
 " set width
 let g:netrw_winsize = 25
 
-let g:netrw_altv = 1
+" let g:netrw_altv = 1
 
 " File explorer ----------------------------------------------------------------------
 set hlsearch
@@ -31,9 +31,24 @@ endif
 
 call plug#begin('~/.config/nvim/plugged')
 
+" fzf installed via Homebrew
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
+
 Plug 'unblevable/quick-scope'
 Plug 'sheerun/vim-polyglot'
 Plug 'chriskempson/base16-vim'
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
 
 call plug#end()
 
+" COC -------------------------------------------------------------------------------
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
