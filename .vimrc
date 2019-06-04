@@ -9,13 +9,13 @@ autocmd FileType javascript setlocal ts=2 sts=2 sw=2
 
 " File explorer ----------------------------------------------------------------------
 " tree view
-let g:netrw_liststyle = 3
+" let g:netrw_liststyle = 3
 " remove banner
-let g:netrw_banner = 0
+" let g:netrw_banner = 0
 " open new files in horizontal split
-let g:netrw_browse_split = 4
+" let g:netrw_browse_split = 4
 " set width
-let g:netrw_winsize = 25
+" let g:netrw_winsize = 25
 
 " let g:netrw_altv = 1
 
@@ -39,10 +39,20 @@ Plug 'unblevable/quick-scope'
 Plug 'sheerun/vim-polyglot'
 Plug 'chriskempson/base16-vim'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+Plug 'tpope/vim-vinegar'
 
 call plug#end()
 
 " COC -------------------------------------------------------------------------------
+" if hidden is not set, TextEdit might fail.
+set hidden
+
+" always show signcolumns
+set signcolumn=yes
+
+" Use `[c` and `]c` to navigate diagnostics
+nmap <silent> [c <Plug>(coc-diagnostic-prev)
+nmap <silent> ]c <Plug>(coc-diagnostic-next)
 
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
@@ -52,3 +62,7 @@ nmap <silent> gr <Plug>(coc-references)
 
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
