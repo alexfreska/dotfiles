@@ -11,7 +11,7 @@ alias vim="nvim"
 ### git ####
 
 # git completion
-source ~/git-completion.bash
+source ~/projects/dotfiles/git-completion.bash
 
 
 
@@ -23,7 +23,7 @@ if [ -f /etc/profile ]; then
 	source /etc/profile
 fi
 
-export NVM_DIR="$HOME/.nvm"
+export NVM_DIR="$HOME/.config/nvm"
 
 # This loads nvm
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
@@ -47,3 +47,5 @@ export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git --ignore node_modules --ig
 
 ### local profile ####
 source .local_profile
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

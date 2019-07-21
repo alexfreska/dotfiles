@@ -5,7 +5,10 @@ set number
 set mouse=a
 
 " Language ---------------------------------------------------------------------------
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
 autocmd FileType javascript setlocal ts=2 sts=2 sw=2
+autocmd FileType typescript setlocal ts=2 sts=2 sw=2
+autocmd FileType typescript.tsx setlocal ts=2 sts=2 sw=2
 
 " " Netrw ----------------------------------------------------------------------
 " " tree view
@@ -39,6 +42,12 @@ Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
 Plug 'tpope/vim-vinegar'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'tomtom/tcomment_vim'
+Plug 'tpope/vim-surround'
+Plug 'Yggdroot/indentLine'
+Plug 'Raimondi/delimitMate'
 
 call plug#end()
 
@@ -91,7 +100,19 @@ set colorcolumn=81
 set hidden
 " set cursorline
 
-" COC -------------------------------------------------------------------------------
+" Indentation ----------------------------------------------------------------
+set expandtab
+set shiftround
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+
+" Text & other whitespace -----------------------------------------------------
+set list
+set listchars=tab:→\ ,eol:¬,nbsp:+
+set nowrap
+
+" COC -------------------------------------------------------------------------
 " if hidden is not set, TextEdit might fail.
 set hidden
 
@@ -139,11 +160,16 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 " previous-history instead of down and up. If you don't like the change,
 " explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
 let g:fzf_history_dir = '~/.local/share/fzf-history'
+map <C-p> :Files<CR>
+map <C-Space> :Ag<CR>
 
 
 " NERDTree ------------------------------------------------------------------
 let NERDTreeMinimalUI = 1
 let g:NERDTreeIgnore = ['^build$', '^node_modules$']
+map <C-n> :NERDTreeToggle<CR>
+map <C-m> :NERDTreeFind<CR>
+
 
 " Functions -------------------------------------------------------------------
 
