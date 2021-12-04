@@ -1,51 +1,41 @@
-# Use Vi bindings.
-set -o vi
+### Env/package managers
 
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
+# Yarn
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
-### vim ####
-alias vim="nvim"
+# Brew
+export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
+alias ibrew='arch -x86_64 /usr/local/bin/brew'
 
-
-
-### git ####
-
-# git completion
-source ~/projects/dotfiles/git-completion.bash
-
-
-
-### nvm ###
-
-# https://superuser.com/questions/544989/does-tmux-sort-the-path-variable/583502#583502
-if [ -f /etc/profile ]; then
-	PATH=""
-	source /etc/profile
-fi
-
-export NVM_DIR="$HOME/.config/nvm"
-
-# This loads nvm
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-
-# This loads nvm bash_completion
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-
-
-
-### rbenv ###
+# rbenv
 export RBENV_ROOT=/usr/local/var/rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
+### Langauges
 
-### FZF ###
+# Go
+export GOPATH=$HOME/go
+export GOROOT="$(brew --prefix golang)/libexec"
+export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"k
 
+### Tools
+
+# Vim
+alias vim="nvim"
+# Use Vi bindings
+set -o vi
+
+# FZF
 # Install fzf to get the bash file
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git --ignore node_modules --ignore dist -g ""'
 
+# Local profile
+[ -f ~/.local_profile ] && source ~/.local_profile
 
-### local profile ####
-source .local_profile
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
