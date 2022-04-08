@@ -21,7 +21,7 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # Go
 export GOPATH=$HOME/go
 export GOROOT="$(brew --prefix golang)/libexec"
-export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"k
+export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 
 ### Tools
 
@@ -38,4 +38,8 @@ export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git --ignore node_modules --ig
 
 # Local profile
 [ -f ~/.local_profile ] && source ~/.local_profile
+
+# Elixir
+export PATH="$HOME/.mix/escripts:$PATH"
+export ELIXIR_ERL_OPTIONS="-kernel shell_history enabled"
 

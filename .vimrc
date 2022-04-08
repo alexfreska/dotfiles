@@ -1,16 +1,16 @@
-" Basics -----------------------------------------------------------------------------
+" Basics
 " Show line numbers
 set number
 
 set mouse=a
 
-" Language ---------------------------------------------------------------------------
+" Language
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
 autocmd FileType javascript setlocal ts=2 sts=2 sw=2
 autocmd FileType typescript setlocal ts=2 sts=2 sw=2
 autocmd FileType typescript.tsx setlocal ts=2 sts=2 sw=2
 
-" " Netrw ----------------------------------------------------------------------
+" " Netrw
 " " tree view
 " let g:netrw_liststyle = 3
 " " remove banner
@@ -22,7 +22,7 @@ autocmd FileType typescript.tsx setlocal ts=2 sts=2 sw=2
 " " new window and cursor at right
 " let g:netrw_altv = 1
 
-" Plugins  ---------------------------------------------------------------------------
+" Plugins
 " automatically install vim-plug
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -36,10 +36,15 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+# horizontal navigation
 Plug 'unblevable/quick-scope'
+# general language support
 Plug 'sheerun/vim-polyglot'
+# base 16 theme
 Plug 'chriskempson/base16-vim'
+# language server
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+# netrw improvements
 Plug 'tpope/vim-vinegar'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -49,6 +54,7 @@ Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-surround'
 Plug 'Yggdroot/indentLine'
 Plug 'Raimondi/delimitMate'
+Plug 'fatih/vim-go'
 
 call plug#end()
 
