@@ -36,15 +36,15 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-# horizontal navigation
+" horizontal navigation
 Plug 'unblevable/quick-scope'
-# general language support
+" general language support
 Plug 'sheerun/vim-polyglot'
-# base 16 theme
+" base 16 theme
 Plug 'chriskempson/base16-vim'
-# language server
+" language server
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
-# netrw improvements
+" netrw improvements
 Plug 'tpope/vim-vinegar'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
